@@ -62,7 +62,7 @@ class Program
         Mission._endDate = "2025";
         // Console.WriteLine(Mission);
 
-
+        // Resune is instantiated as my Resume, values are given and arguments are passed in.
         Resume myResume = new Resume();
         myResume._name = "Marvin Galicia";
         myResume._email = "mgalicia0315@gmail.com";

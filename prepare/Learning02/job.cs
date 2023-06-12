@@ -6,6 +6,7 @@ public class WorkHistory
     public string _startDate;
     public string _endDate;
     
+    // public function to display info, for other files to tap into. 
     public void Display()
     {
         Console.WriteLine($"{_jobTitle} ({_companyName}) {_startDate} - {_endDate}");
