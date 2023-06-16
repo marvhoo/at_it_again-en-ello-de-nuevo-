@@ -12,7 +12,7 @@ class Journal
     {
         
         entries.Add(newEntry);
-        Console.WriteLine("Adding entry to journal: ");
+        Console.WriteLine("Adding entry to journal.\n");
         
     }
 
@@ -23,7 +23,7 @@ class Journal
         foreach (Entry entry in entries)
         {
             entry.Display();
-            
+
         }
 
     }
@@ -31,23 +31,35 @@ class Journal
     public void SaveToFile(string file)
     {
 
-        Console.WriteLine("Saving to file: ");
-        string filename = "Journal.txt";
+        Console.WriteLine("Saving to file...\n");
 
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        List<string> logs = new List<string>();
+
+        foreach (Entry entry in entries)
         {
-            foreach (Entry entry in entries)
-            {
-    
-                outputFile.WriteLine($"{entry._date}\n{entry._promptText}\n{entry._entryText}\n");
-    
-            }
+            string entryAsCSV = $"{entry.date}|{entry.promptText}|{entry.entryText}";
+            logs.Add(entryAsCSV);
         }
+
+        File.WriteAllLines(file, logs);
 
     }
 
     public void LoadFromFile(string file)
     {
         
+        Console.WriteLine($"\nLoading from file... {file}.\n" 
+        + "After the beep your logs will be available for display.\n");
+        Console.Beep();
+        
+        List<string> logs = File.ReadAllLines(file).ToList();
+        foreach (string log in logs)
+        {
+            string[] items = log.Split('|');
+            Entry entry = new Entry(items[0], items[1], items[2]);
+
+            entries.Add(entry);
+        }
+
     }
 }

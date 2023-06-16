@@ -17,8 +17,4 @@ public class PromptGenerator
         return randomLine;
     }
     
-    // public void Display()
-    // {
-    //     Console.WriteLine($"{GetRandomPrompt()}");
-    // }
 }

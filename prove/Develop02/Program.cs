@@ -36,7 +36,7 @@ class Program
                     string promptText = promptRandom.GetRandomPrompt();
                     Console.Write($"{promptText}\n> ");
                     string entryText = Console.ReadLine();
-                    string date = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+                    string date = DateTime.Now.ToString("MM dd/yyyy HH:mm:ss");
 
                     Entry entry = new Entry(date, promptText, entryText);
                     journal.AddEntry(entry);
@@ -47,41 +47,19 @@ class Program
                     journal.DisplayAll();
                     break;
                 case 3:
+                    Console.WriteLine("Name of the file to load from: ");
+                    string fileNameLoad = Console.ReadLine();
+                    journal.LoadFromFile(fileNameLoad);
                     break;
-                case 4: 
+                case 4:
+                    Console.WriteLine("Name of the file to save to: ");
+                    string fileNameSave = Console.ReadLine();
+                    journal.SaveToFile(fileNameSave); 
                     break;
             }
                     
         }
 
-        
-        // Entry entry1 = new Entry();
-        
-
-         
-        // entry1._promptText = prompt.GetRandomPrompt();
-        // Console.WriteLine($"{entry1._promptText}");
-        // string input = Console.ReadLine();
-        // entry1._entryText = input;
-        // entry1._date = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
-
-
-
-        // string file = journal.AddEntry(entry1);
-        // journal.SaveToFile(entry1);
-
-        // entry1.Display();
-
-        // journal.AddEntry(entry1);
-        
-
-        
-        // prompt.Display();
-
-
-    
-
-        
     }
 
 }
