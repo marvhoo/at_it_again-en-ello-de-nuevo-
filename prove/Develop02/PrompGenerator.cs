@@ -5,12 +5,12 @@ public class PromptGenerator
     {
         Console.WriteLine("\nReading from file: ");
         List<string> _prompts = new List<string>();
-        string filename = "Prompts.txt";
+        string filename       = "Prompts.txt";
 
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string[] lines        = System.IO.File.ReadAllLines(filename);
 
         
-        int index = new Random().Next(lines.Length);
+        int index         = new Random().Next(lines.Length);
         string randomLine = lines[index];
 
 
