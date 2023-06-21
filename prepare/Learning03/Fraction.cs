@@ -10,7 +10,7 @@ class Fraction
         denominator = 1;
     }
 
-    public Fraction(int wholeNumber)
+    public Fraction(int wholeNumberC)
     {
         numerator = wholeNumber;
         denominator = 1;
