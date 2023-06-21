@@ -19,5 +19,11 @@ class Program
         Fraction fraction4 = new Fraction(1, 3); 
         Console.WriteLine($"Fraction 4: {fraction4.GetFractionString()}");
         Console.WriteLine($"Decimal value: {fraction4.GetDecimalValue()}\n");
+
+        Fraction fraction5 = new Fraction(1, 0); // This will throw an exception
+        fraction5.Denominator = 0;
+        fraction5.Numerator = 3;
+        Console.WriteLine($"Fraction 5: {fraction5.GetFractionString()}");
+        Console.WriteLine($"Decimal value: {fraction5.GetDecimalValue()}\n");
     }
 }
