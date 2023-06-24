@@ -11,7 +11,7 @@ class Program
         Journal journal              = new Journal();
 
         int menuChoice               = 0;
-        List<string> menu            = new List<string>
+        List<string> menu = new List<string>
         {
             "Please select from the following options:",
             "1. Add Entry",
@@ -40,20 +40,23 @@ class Program
 
                     Entry entry = new Entry(date, promptText, entryText);
                     journal.AddEntry(entry);
-                    
+                    break;
+
                 case 2:
                     journal.DisplayAll();
-                    
+                    break;
+
                 case 3:
                     Console.WriteLine("Name of the file to load from: ");
                     string fileNameLoad = Console.ReadLine();
                     journal.LoadFromFile(fileNameLoad);
+                    break;
                     
                 case 4:
                     Console.WriteLine("Name of the file to save to: ");
                     string fileNameSave = Console.ReadLine();
                     journal.SaveToFile(fileNameSave); 
-                
+                    break;
             }
                     
         }

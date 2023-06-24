@@ -1,6 +1,5 @@
 public class PromptGenerator
 {
-
     public string GetRandomPrompt()
     {
         Console.WriteLine("\nReading from file: ");
