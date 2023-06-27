@@ -14,7 +14,7 @@ class Program
         {
             "Welcome to the Scripture Mastery App!",
             "1. Add a scripture",
-            "2. Display all scriptures",
+            "2. Display scriptures added",
             "3. Display scriptures from file",
             "4. Save scriptures to file",
             "5. Generate a random scripture",
@@ -72,7 +72,7 @@ class Program
                     ClearConsole();
 
                     Console.WriteLine("Random scripture to memorize...");
-                    string randomScrip = format.NewScripture("Scriptures.txt");
+                    string randomScrip = format.NewScripture();
                     string _scripture = format.GetReference(randomScrip);
                     var item = format.ListReference(randomScrip);
                     Reference reference1 = new Reference(item[0], item[1], item[2], item[3]);
@@ -116,4 +116,12 @@ class Program
         }
     
 }
+
+
+// For crerativity I added functionality that allows the user to add scripture of preference.
+// I also added functionality that allows the user to generate a random scripture from a file.
+// I also added functionality that allows the user to save the scriptures to a file.
+// Added functionality that allows the user to load the scriptures from a file.
+// Added functionality that allows the user to display all the scriptures added.
+// Added functionality that allows the user to add a scripture.
 

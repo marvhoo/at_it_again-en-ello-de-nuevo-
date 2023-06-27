@@ -74,19 +74,16 @@ class Format
         }
     }
 
-    public string NewScripture(string file)
+    public string NewScripture()
     {
         List<string> _scriptures = new List<string>();
-        string _file = file;
+        string filename         = "Scriptures.txt";
 
-        string[] lines = System.IO.File.ReadAllLines(_file);
+        string[] lines          = System.IO.File.ReadAllLines(filename);
 
         int index = new Random().Next(lines.Length);
         string randomLine = lines[index];
 
         return randomLine;
     }
-
-    // public Test
-
 }
