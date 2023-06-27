@@ -1,37 +1,53 @@
 
 class Reference
 {
-    string book;
-    int chapter, verse, endVerse;
+    public string book, chapter,verse, verseStart, verseEnd, text;
 
-    public Reference(string _book, int _chapter, int _verse)
+    public Reference(string _book, string _chapter, string _verse)
     {
         book = _book;
         chapter = _chapter;
-        verse = _verse;
+        verseStart = _verse;
     }
 
-    public Reference(string _book, int _chapter, int _verseStart, int _verseEnd)
+    public Reference(string _book, string _chapter, string _verseStart, string _verseEnd)
     {
         book       = _book;
         chapter    = _chapter;
         verse      = _verseStart;
-        endVerse   = _verseEnd;
+        verseEnd   = _verseEnd;
     }
+
+    public Reference(string _book, string _chapter, string _verseStart, string _verseEnd, string _text)
+    {
+        book            = _book;
+        chapter         = _chapter;
+        verseStart      = _verseStart;
+        verseEnd        = _verseEnd;
+        text            = _text;
+    }
+    
 
     public string GetDisplayText()
     {
-        string referenceDisplay = "";
+        string referenceDisplay ="";
 
-        if (endVerse != 0 )
+
+        if (verseEnd != null)
         {
-            referenceDisplay = $"{book} {chapter}:{verse}-{endVerse}";
+            referenceDisplay = $"{book} {chapter}:{verseStart}\n{text}";
         }
         else
         {
-            referenceDisplay = $"{book} {chapter}:{verse}";
+            referenceDisplay = $"{book} {chapter}:{verseStart}-{verseEnd}\n{text}";
         }
+       
         return referenceDisplay;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine(GetDisplayText());
     }
 }
 

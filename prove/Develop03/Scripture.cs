@@ -3,7 +3,12 @@ class Scripture
 {
     Reference reference;
     List<Word> words;
+    
 
+    public Scripture()
+    {
+        
+    }
     public Scripture(Reference _reference, string _text)
     {
         reference = _reference;
@@ -31,7 +36,7 @@ class Scripture
             words[wordIndex].Hide(); 
         }
     }
-
+    
     public string GetDisplayText()
     {
         string scriptureDisplay = "";
@@ -50,6 +55,8 @@ class Scripture
         return ($"{reference.GetDisplayText()} {scriptureDisplay}");
     }   
 
+   
+    
     public bool IsCompletelyHidden()
     {
         foreach (Word word in words)
@@ -61,5 +68,13 @@ class Scripture
         }
         return true;
     }
+
+  
+        
+
+
+
+    
+
 }
 
