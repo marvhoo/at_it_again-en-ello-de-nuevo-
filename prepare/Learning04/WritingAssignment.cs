@@ -5,19 +5,30 @@ namespace library
     {
         private string _title = "";
 
-        public string GetTitle()
-        {
-            return _title;
-        }
-
-        public void SetTitle(string title)
+        public WritingAssignment(string studentName, string studentID, string topic, string title)
+            : base(studentName, studentID, topic)
         {
             _title = title;
         }
+
+        // public string GetTitle()
+        // {
+        //     return _title;
+        // }
+
+        // public void SetTitle(string title)
+        // {
+        //     _title = title;
+        // }
         public string GetWritinginformation()
         {
-            return $"{_studentID}: {_studentName} - {_topic}\n" 
-            + $"{_title}";
+            string studentName = GetStudentName();
+            string topic = GetTopic();
+            string studentID = GetStudentID();
+            string title = _title;
+
+            return $"ID: {studentID}: {studentName} - {topic}\n" 
+            + $"{title} by {studentName}";
         }
     }
 }

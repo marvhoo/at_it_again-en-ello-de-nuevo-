@@ -1,43 +1,50 @@
 
 namespace library
 {
-    class Assignment
+    public class Assignment
     {
-        protected string _studentName, _topic, _studentID = "";
+        private string _studentName, _topic, _studentID;
+
+        public Assignment(string studentName, string studentID, string topic)
+        {
+            _studentName = studentName;
+            _studentID = studentID;
+            _topic = topic;
+        }
 
         public string GetStudentName()
         {
             return _studentName;
         }
 
-        public void SetStudentName(string studentName)
-        {
-            _studentName = studentName;
-        }
+        // public void SetStudentName(string studentName)
+        // {
+        //     _studentName = studentName;
+        
 
         public string GetTopic()
         {
             return _topic;
         }
 
-        public void SetTopic(string topic)
-        {
-            _topic = topic;
-        }                           
+        // public void SetTopic(string topic)
+        // {
+        //     _topic = topic;
+        // }                           
 
         public string GetStudentID()
         {
             return _studentID;
         }
 
-        public void SetStudentID(string studentID)
-        {
-            _studentID = studentID;
-        }
+        // public void SetStudentID(string studentID)
+        // {
+        //     _studentID = studentID;
+        // }
         
         public string GetSummary()
         {
-            return $"{_studentID}, {_studentName} - {_topic}";
+            return $"ID: {_studentID}: {_studentName} - {_topic}";
         }   
     }
 }

@@ -5,29 +5,41 @@ namespace library
     {
         private string _textbookSection, _problem = "";
 
-        public string GetTextbookSection()
-        {
-            return _textbookSection;
-        }
-
-        public void SetTextbookSection(string textbookSection)
+        public MathAssignment(string studentName, string studentID, string topic, string textbookSection, string problem)
+            : base(studentName, studentID, topic)
         {
             _textbookSection = textbookSection;
-        }
-
-        public string GetProblem()
-        {
-            return _problem;
-        }
-
-        public void SetProblem(string problem)
-        {
             _problem = problem;
         }
 
+
+        // public string GetTextbookSection()
+        // {
+        //     return _textbookSection;
+        // }
+
+        // public void SetTextbookSection(string textbookSection)
+        // {
+        //     _textbookSection = textbookSection;
+        // }
+
+        // public string GetProblem()
+        // {
+        //     return _problem;
+        // }
+
+        // public void SetProblem(string problem)
+        // {
+        //     _problem = problem;
+        // }
+
         public string GetHomeworkList()
         {
-            return $"{_studentID}: {_studentName} - {_topic}\n"  
+            string studentName = GetStudentName();
+            string topic = GetTopic();
+            string studentID = GetStudentID();
+            
+            return $"{studentID}: {studentName} - {topic}\n"  
             + $"Section {_textbookSection} Problems {_problem}";
         }
     }
