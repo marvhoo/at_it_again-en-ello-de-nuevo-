@@ -9,6 +9,12 @@ class Entry
         promptText = _promptText;
         entryText  = _entryText;        
     }
+
+    public Entry(string _date, string _entryText)
+    {
+        date       = _date;
+        entryText  = _entryText;
+    }
     public void Display()
     {
     

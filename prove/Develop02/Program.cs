@@ -33,14 +33,29 @@ class Program
             switch (menuChoice)
             {
                 case 1:
-                    string promptText = promptRandom.GetRandomPrompt();
-                    Console.Write($"{promptText}\n> ");
-                    string entryText = Console.ReadLine();
-                    string date = DateTime.Now.ToString("MM dd/yyyy HH:mm:ss");
+                    Console.Write("Would you like to add entry with a prompt? (y/n): ");
+                    string addEntryChoice = Console.ReadLine();
+                    if (addEntryChoice == "n")
+                    {
+                        Console.Write("Enter your entry: ");
+                        string entryText = Console.ReadLine();
+                        string date = DateTime.Now.ToString("MM dd/yyyy HH:mm:ss");
 
-                    Entry entry = new Entry(date, promptText, entryText);
-                    journal.AddEntry(entry);
-                    break;
+                        Entry entry = new Entry(date, entryText);
+                        journal.AddEntry(entry);
+                        break;
+                    }
+                    else
+                    {
+                        string promptText = promptRandom.GetRandomPrompt();
+                        Console.Write($"{promptText}\n> ");
+                        string entryText = Console.ReadLine();
+                        string date = DateTime.Now.ToString("MM dd/yyyy HH:mm:ss");
+
+                        Entry entry = new Entry(date, promptText, entryText);
+                        journal.AddEntry(entry);
+                        break;
+                    }
 
                 case 2:
                     journal.DisplayAll();
