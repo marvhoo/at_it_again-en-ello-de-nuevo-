@@ -1,6 +1,7 @@
 
     class BreathingActivity : Activity
     {
+        private int interval;
         public BreathingActivity()
         {
             this.SetActivityName("Breathing Activity");
@@ -11,7 +12,8 @@
         public void Run()
         {
             DisplayStartingMessage();
-            int interval = GetDuration() / 6;
+            ShowCountDown(5);
+            interval = GetDuration() / 6;
             for (int i = 0; i < 2; i++)
             {
                 Console.WriteLine("\nBreathe in...");
@@ -19,7 +21,6 @@
                 
                 Console.WriteLine("\nBreathe out...");
                 ShowCountDown(interval);
-            
             }
             DisplayEndingMessage();
         }

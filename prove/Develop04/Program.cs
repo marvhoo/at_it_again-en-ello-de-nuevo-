@@ -40,6 +40,8 @@ class Program
                     break;
 
                 case 3:
+                    ListingActivity listingActivity = new ListingActivity();
+                    listingActivity.Run();
                     break;
             }
         };
