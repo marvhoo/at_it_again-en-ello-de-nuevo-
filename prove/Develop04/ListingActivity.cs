@@ -1,9 +1,9 @@
 
 class ListingActivity : Activity
 {
-    private List<string> usedPrompts        = new List<string>();
+    private readonly List<string> usedPrompts        = new();
     private string[] lines;
-    private Random random                   = new Random();
+    private readonly Random random                   = new();
     private int _count                      = 0;
     public ListingActivity()
     {

@@ -32,11 +32,11 @@ class ReflectingActivity : Activity
         while (DateTime.Now < end)
         {
             Console.Write($"\n> {GetRandomQuestion()}\n");
-            ShowSpinner(interval);
+            ShowSpinner(_interval);
             Console.Beep();
 
             Console.WriteLine($"\n> {GetRandomQuestion()}");
-            ShowSpinner(interval);
+            ShowSpinner(_interval);
             Console.Beep();
 
             Console.WriteLine($"\nWell done!!");
