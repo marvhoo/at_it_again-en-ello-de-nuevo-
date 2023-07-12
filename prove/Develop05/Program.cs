@@ -50,3 +50,9 @@ while (choice != 6)
             break;
     }
 }
+
+
+// showed creativity by implementing a scoring system, an interface, various classes that 
+// inherit from the interface, and a class that uses the interface as a property
+// Additionally, created a class for score tracking. 
+// Changed behaviors from the "original" blueprint.
