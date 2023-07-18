@@ -1,9 +1,15 @@
-using System;
 
-class Program
+using System;
+using FinalProject;
+using Library;
+
+
+
+Expeditor expeditor = new();
+
+bool isRunning = true;
+
+while (isRunning)
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello FinalProject World!");
-    }
+    isRunning = expeditor.RunCatalog();
 }
