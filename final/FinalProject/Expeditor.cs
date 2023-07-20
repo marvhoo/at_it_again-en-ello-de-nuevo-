@@ -6,8 +6,21 @@ namespace FinalProject
 {
     class Expeditor : DataBase
     {
-        Tasks tasks = new();
-        UserManagement userManagement = new();
+        private string userName, firstName, lastName, email, phoneNumber;
+
+        public Expeditor(string userName, string firstName, string lastName, string email, string phoneNumber)
+        {
+            this.userName = userName;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.phoneNumber = phoneNumber;
+        }
+
+        Tasks tasks                                         = new();
+        UserManagement userManagement                       = new();
+        CoffeeMachineCatalog coffeeMachineManagement        = new();
+      
         public Expeditor()
         {
 
@@ -17,7 +30,7 @@ namespace FinalProject
         {   Console.Clear();
             tasks.DisplayStartingMessage();
             tasks.ShowCatalog();
-            int catalogChoice = tasks.GetCatalogChoice();
+            int catalogChoice                               = tasks.GetCatalogChoice();
             return RunCatalogChoice(catalogChoice);
         
         }
@@ -26,11 +39,19 @@ namespace FinalProject
         {
             Console.Clear();
             userManagement.ShowCatalog();
-            int catalogChoice = userManagement.GetCatalogChoice();
+            int catalogChoice                               = userManagement.GetCatalogChoice();
             return GoToUserManagementChoice(catalogChoice);       
-
-            
         }
+
+        public bool RunCoffeeMachineManagement()
+        {
+            Console.Clear();
+            coffeeMachineManagement.ShowCatalog();
+            int catalogChoice                               = coffeeMachineManagement.GetCatalogChoice();
+            return GoToCoffeeMachineManagementChoice(catalogChoice);       
+        }
+
+
         
         private bool RunCatalogChoice(int choice)
         {
@@ -39,7 +60,7 @@ namespace FinalProject
                 //switch case for each catalog choice, 8 total
                 case 1:
                     Console.Clear();
-                    bool isRunning = true;
+                    bool isRunning              = true;
                     while (isRunning)
                     {
                         isRunning = RunUserManagement();
@@ -47,18 +68,15 @@ namespace FinalProject
 
                     return true;
                 case 2:
+                    Console.Clear();
+                    bool isRunning2             = true; 
+                    while (isRunning2)
+                    {
+                        isRunning2 = RunCoffeeMachineManagement();
+                    }               
                     return true;
                 case 3:
-                    return true;
-                case 4:
-                    return true;
-                case 5:
-                    return true;
-                case 6: 
-                    return true;
-                case 7: 
-                    return true;
-                case 8: 
+                    Console.Clear();
                     return false;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
@@ -74,6 +92,7 @@ namespace FinalProject
             {
                 //switch case for each user management choice, 5 total
                 case 1:
+                
                     DisplayUsers();
                     Console.ReadKey();
                     return true;
@@ -97,13 +116,11 @@ namespace FinalProject
                     AddUser(user);
                     return true;
                 case 3:
-                    Console.Write("\nEnter index of user to update: ");
+                    Console.Write("\nEnter index of user to delete: ");
                     int index = Convert.ToInt32(Console.ReadLine());
-                    // UpdateUser(index);
+                    DeleteUser(index);
                     return true;
                 case 4:
-                    return true;
-                case 5:
                     return false;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
@@ -112,5 +129,30 @@ namespace FinalProject
             }
         }
 
+        public bool GoToCoffeeMachineManagementChoice(int choice)
+        {
+            switch(choice)
+            {
+                case 1:
+                    Console.Write("Welcome to Dek's Coffee Machine!\nWhat would you like? (espresso, latte, cappuccino): ");
+                    string coffeeChoice = Console.ReadLine().ToLower();
+                    RunCoffeMake(coffeeChoice);            
+                    return true;
+                case 2:
+                    Console.Write("This is your report as of today: ");
+                    RunReport();
+                    Console.ReadKey();
+                    return true;
+                case 3:
+                    return false;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    RunCoffeeMachineManagement();
+                    return true;
+            }
+        
+        }
+        
+        
     }
 }

@@ -6,11 +6,12 @@ namespace FinalProject
         protected List<string> menuOptions = new();
         public Management()
         {
+            
         }
 
         public virtual void ShowCatalog()
         {
-            int count = 1;
+            int count                       = 1;
             
             foreach (string mO in menuOptions)
             {

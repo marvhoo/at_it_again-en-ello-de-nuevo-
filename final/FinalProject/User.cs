@@ -4,13 +4,13 @@ namespace FinalProject
     class User
     {
         public string userName, firstName, lastName, email, phoneNumber;
-        public User(string userName, string _firstName, string _lastName, string _email, string _phoneNumber)
+        public User(string userName, string firstName, string lastName, string email, string phoneNumber)
         {
-            this.userName   = userName;
-            firstName       = _firstName;
-            lastName        = _lastName;
-            email           = _email;
-            phoneNumber     = _phoneNumber;
+            this.userName        = userName;
+            this.firstName       = firstName;
+            this.lastName        = lastName;
+            this.email           = email;
+            this.phoneNumber     = phoneNumber;
         }
 
         public string Text()

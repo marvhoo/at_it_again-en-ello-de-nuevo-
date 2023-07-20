@@ -1,9 +1,9 @@
 
 namespace FinalProject
 {
-    class DataBase
+    class DataBase : CoffeeMachineHandling
     {
-        List<User> users;
+        protected List<User> users;
 
         public DataBase()
         {
@@ -13,27 +13,30 @@ namespace FinalProject
         public void DisplayUsers()
         {   
             LoadUsers();
+            int count = 1;
             foreach(User user in users)
-            {
+            {   
+                
+                Console.Write($"{count}. ");
+                count++;
                 user.Display();
                 Console.WriteLine();
             }
         }
 
         public void AddUser(User newUser)
-        {
+        {   LoadUsers();
             users.Add(newUser);
             SaveUsers();
         }
         
-        // public void UpdateUser(int index)
-        // {
-        //     users[index] = updatedUser;
-        // }
-
-        public void DeleteUser(int index)
+        // method will delete user based on username
+        // if username is not found, method will return true 
+        // and user will be prompted to try again
+        public void DeleteUser(int index)  //RUNdELETEUSER
         {
             users.RemoveAt(index);
+            SaveUsers();
         }
 
         // users from AddUser() and DeleteUser() will be saved to a file
@@ -59,6 +62,5 @@ namespace FinalProject
                 users.Add(newUser);
             }
         }
-
     }
 }

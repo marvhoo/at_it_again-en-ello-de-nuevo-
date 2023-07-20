@@ -6,12 +6,7 @@ namespace FinalProject
         public Tasks()
         {
             menuOptions.Add("User");
-            menuOptions.Add("Food");
-            menuOptions.Add("Music");
-            menuOptions.Add("Books");
-            menuOptions.Add("Movies");
-            menuOptions.Add("Games");
-            menuOptions.Add("Banking");
+            menuOptions.Add("Coffee Machine");
             menuOptions.Add("Exit");        
         }
 
